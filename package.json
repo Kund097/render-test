@@ -4,6 +4,8 @@
     "description": "learn how to use Nodejs for the backend side ",
     "main": "index.js",
     "scripts": {
+        "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd ../vite-project && npm run build && @powershell Copy-Item dist -Recurse ../backend",
+        "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
         "start": "node index.js",
         "dev": "nodemon index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
